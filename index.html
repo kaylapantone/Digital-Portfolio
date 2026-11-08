@@ -1,0 +1,128 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kayla Pantone — Interior Design Portfolio</title>
+  <meta name="description" content="Kayla Pantone, interior design portfolio. Walk down the street from morning to night and step inside each project.">
+  <meta name="theme-color" content="#2a2826">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232a2826'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' text-anchor='middle' fill='%23efe4d2'%3EKP%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=37">
+</head>
+<body>
+  <a class="skip-link" href="#map">Skip to the street map</a>
+
+  <!-- Loading screen -->
+  <div id="loader" role="status" aria-live="polite">
+    <div class="loader-inner">
+      <p class="loader-name">Kayla Pantone</p>
+      <p class="loader-role">Interior Design Portfolio</p>
+      <div class="loader-bar" aria-hidden="true"><div class="loader-sun"></div><div class="loader-fill"></div></div>
+      <p class="loader-text">Getting ready for the day…</p>
+    </div>
+  </div>
+
+  <h1 class="visually-hidden">Kayla Pantone — Interior Design Portfolio</h1>
+
+  <!-- The street -->
+  <main id="scene" aria-label="An illustrated city street. Use the arrow keys, the on-screen arrows or the street map to walk.">
+    <div id="bob">
+      <div id="sky" aria-hidden="true">
+        <div class="sky-plate" data-plate="sunrise"></div>
+        <div class="sky-plate" data-plate="day"></div>
+        <div class="sky-plate" data-plate="sunset"></div>
+        <div class="sky-plate" data-plate="night"></div>
+        <div class="sky-warm"></div>
+      </div>
+      <div id="clouds" aria-hidden="true"></div>
+      <div id="tagline"><p></p></div>
+      <div id="skyline" aria-hidden="true"></div>
+      <div id="world" aria-hidden="true"></div>
+      <div id="fg" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <!-- Intro: tagline over a softly blurred street; fades when walking starts -->
+  <div id="intro" aria-hidden="true"><p></p></div>
+
+  <p id="clock-live" class="visually-hidden" aria-live="polite"></p>
+
+  <!-- Start hint -->
+  <div id="hint" aria-hidden="true">
+    <span class="hint-text"></span>
+  </div>
+
+  <!-- Progress map -->
+  <!-- Bottom bar: clock + street map -->
+  <div id="dock">
+    <div id="clock" aria-hidden="true">
+      <svg viewBox="0 0 100 100" class="clock-face">
+        <circle cx="50" cy="50" r="46" class="cf-rim"/>
+        <circle cx="50" cy="50" r="41" class="cf-face"/>
+        <g class="cf-ticks"></g>
+        <line x1="50" y1="50" x2="50" y2="28" class="cf-hour"/>
+        <line x1="50" y1="50" x2="50" y2="17" class="cf-min"/>
+        <circle cx="50" cy="50" r="3" class="cf-pin"/>
+      </svg>
+      <div class="clock-text">
+        <span class="clock-time">7:30 AM</span>
+        <span class="clock-label">Morning</span>
+      </div>
+    </div>
+    <nav id="map" aria-label="Street map: jump to a stop">
+      <div class="map-track"><div class="map-line"></div><div class="map-marker" aria-hidden="true"></div></div>
+      <ol class="map-stops"></ol>
+    </nav>
+  </div>
+
+  <!-- Walk buttons -->
+  <button class="walk-btn walk-left" type="button" aria-label="Walk backward (hold)"><span aria-hidden="true">‹</span></button>
+  <button class="walk-btn walk-right" type="button" aria-label="Walk forward (hold)"><span aria-hidden="true">›</span></button>
+
+  <button id="sound-toggle" type="button" aria-pressed="false" hidden>Sound off</button>
+
+  <!-- Pop-up -->
+  <div id="modal" hidden>
+    <div id="backdrop"></div>
+    <div id="dialog-wrap">
+      <section id="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+        <div class="dlg-inner">
+          <button class="dlg-close" type="button" aria-label="Close">✕</button>
+          <div class="dlg-scroll"><div class="dlg-content"></div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Full-screen image viewer" hidden>
+    <div class="lb-stage"><img class="lb-img" alt="" draggable="false"></div>
+    <p class="lb-caption"></p>
+    <div class="lb-bar">
+      <button type="button" class="lb-prev" aria-label="Previous image">‹</button>
+      <span class="lb-count" aria-live="polite"></span>
+      <button type="button" class="lb-next" aria-label="Next image">›</button>
+      <span class="lb-sep" aria-hidden="true"></span>
+      <button type="button" class="lb-zoom-out" aria-label="Zoom out">−</button>
+      <button type="button" class="lb-reset" aria-label="Reset zoom">1:1</button>
+      <button type="button" class="lb-zoom-in" aria-label="Zoom in">+</button>
+    </div>
+    <p class="lb-help" aria-hidden="true">Scroll or pinch to zoom · drag to pan · double-click to toggle zoom</p>
+    <button type="button" class="lb-close" aria-label="Close full-screen view">✕</button>
+  </div>
+
+  <!-- Debug HUD (Shift + D) -->
+  <pre id="debug-hud" hidden></pre>
+
+  <noscript><p class="noscript">This portfolio needs JavaScript to walk down the street. Contact Kayla Pantone at <a href="mailto:kpantone290@icloud.com">kpantone290@icloud.com</a> or <a href="tel:+17057173055">(705) 717-3055</a>.</p></noscript>
+
+  <script src="js/config.js?v=37"></script>
+  <script src="js/main.js?v=37"></script>
+</body>
+</html>
+
+</body></html>
